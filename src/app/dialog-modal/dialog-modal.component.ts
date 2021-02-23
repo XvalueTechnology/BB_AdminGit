@@ -370,10 +370,17 @@ export class DialogModalComponent implements OnInit {
     this.selectedState = this.data.state;
     this.selectedGenderValue = this.data.gender;
     this.repAddress = this.data.address;
+    this.validState = this.userInfo.stateName;
+    if(this.selectedState === null||this.selectedState===undefined)
+    {this.selectedState = this.userInfo.stateName;}
     console.log("selectedValue", this.selectedState);
     if (this.userInfo.schoolid === 0) {
       this.isSuperAdmin = true;
       this.validAState = this.data.admin_statename;
+<<<<<<< HEAD
+      this.validState = this.userInfo.stateName;
+=======
+>>>>>>> 102001482351c299b8c3a1445f0d9f0895565624
       // console.log("SDF", this.isSuperAdmin);
     }else{
       this.schoolId = this.userInfo.schoolid;
@@ -635,6 +642,11 @@ getDriver(eve){
 
       }
       console.log("DriverId",this.driverId);
+<<<<<<< HEAD
+    },error => {
+      console.log('oops', error)
+=======
+>>>>>>> 102001482351c299b8c3a1445f0d9f0895565624
     });
   }
 
@@ -666,6 +678,8 @@ getDriver(eve){
             data: { value: "School Adding Failed", type: false },
           });
           }
+        },error => {
+          console.log('oops', error)
         });
     }
   }
@@ -696,6 +710,8 @@ getDriver(eve){
             data: { value: "School Update Failed", type: false },
           });
           }
+        },error => {
+          console.log('oops', error)
         });
     }
   }
@@ -734,6 +750,8 @@ getDriver(eve){
             data: { value: "Admin Adding Failed", type: false },
           });
           }
+        },error => {
+          console.log('oops', error)
         });
     }
   }
@@ -779,6 +797,8 @@ getDriver(eve){
             data: { value: "Admin Update Failed", type: false },
           });
           }
+        },error => {
+          console.log('oops', error)
         });
     }
   }
@@ -907,6 +927,8 @@ if(this.zipCodesrch===undefined||this.zipCodesrch===null){
             alert(res.message + " : " + res.result);
           }
           resolve();
+        },error => {
+          console.log('oops', error)
         });
     });
   }
@@ -1034,6 +1056,8 @@ console.log("SaveUSer",formObj);
             data: { value: "User Adding Failed", type: false },
           });
           }
+        },error => {
+          console.log('oops', error)
         });
     }
   }
@@ -1163,6 +1187,8 @@ else{
             data: { value: "User Update Failed", type: false },
           });
           }
+        },error => {
+          console.log('oops', error)
         });
     }
   }
@@ -1221,6 +1247,8 @@ else{
           if (res.status == "200") {
             this.close();
           }
+        },error => {
+          console.log('oops', error)
         });
     }
   }
@@ -1261,6 +1289,8 @@ else{
             data: { value: "Teacher Adding Failed", type: false },
           });
           }
+        },error => {
+          console.log('oops', error)
         });
     }
     else{
@@ -1306,6 +1336,8 @@ else{
             data: { value: "Teacher Update Failed", type: false },
           });
           }
+        },error => {
+          console.log('oops', error)
         });
     }
     else{
@@ -1341,6 +1373,8 @@ else{
             data: { value: "BusRoute Adding Failed", type: false },
           });
           }
+        },error => {
+          console.log('oops', error)
         });
     }
     else{
@@ -1380,6 +1414,8 @@ else{
             data: { value: "BusRoute Update Failed", type: false },
           });
           }
+        },error => {
+          console.log('oops', error)
         });
     }
      else{
@@ -1421,6 +1457,8 @@ else{
             data: { value: "Report Adding Failed", type: false },
           });
           }
+        },error => {
+          console.log('oops', error)
         });
     }
   }
@@ -1449,6 +1487,11 @@ else{
               data: { value: "School District Updated Failled", type: false },
             });
           }
+<<<<<<< HEAD
+        },error => {
+          console.log('oops', error)
+=======
+>>>>>>> 102001482351c299b8c3a1445f0d9f0895565624
         });
 
   }
@@ -1480,6 +1523,8 @@ else{
           if (res.status == "200") {
             this.close();
           }
+        },error => {
+          console.log('oops', error)
         });
     }
   }
@@ -1492,11 +1537,20 @@ else{
 /// Convert Excel To Json Format......
     this.excel_file = event.target.files[0];
     console.log("Excel", this.excel_file);
+<<<<<<< HEAD
+    let worksheet;
+    let workBook = null;
+    let jsonData = [];
+    let jsonData2 = [];
+    let prexlsToJson = [];
+    let prexlsToJson2 = [];
+=======
 
     let workBook = null;
     let jsonData = [];
     let prexlsToJson = [];
 
+>>>>>>> 102001482351c299b8c3a1445f0d9f0895565624
     const reader = new FileReader();
     const file =  event.target.files[0];
     reader.onload = (event) => {
@@ -1504,8 +1558,112 @@ else{
       this.excelValidationErrors = [];
       workBook =null;
       jsonData = [];
+<<<<<<< HEAD
+      jsonData2 = [];
       this.xlsToJson =[];
       workBook = XLSX.read(data, { type: 'binary' });
+      // workBook.Strings.forEach((element,indx) => {
+      //   if(indx<=21)
+      //  { var str1 = new String(element.h);
+      //   var index = str1.indexOf( "(Mandatory)" );
+      //   var slicedStr = str1.slice(0,index)
+      //   console.log("in",slicedStr)
+      //   console.log("indexindex",index)
+      //   if((element.h.includes("(Mandatory)")||element.h.includes("(Mandatory for student and Teacher)")))
+      //   {
+      //     workBook.Strings[indx]= {"h": slicedStr,
+      //     "r": "<t>"+slicedStr+"</t>",
+      //     "t": slicedStr}
+      //   }}
+      // });
+
+  //     workBook.SheetNames.forEach((elem,ndx)=>{
+  //       var sheetname = elem;
+  //       workBook.Sheets.foreach((element11,index1) => {
+  //         console.log("SHEEEEE",element11)
+  //         element11[index1].forEach((element1,ind)=>{
+  //           element1.forEach((element,indx) => {
+  //             if(element !=="States"){
+  //               element.forEach((element2,idx) => {
+  //                 if(element2!=="!margins"&&element2!=="!!ref")
+  //              {
+  //             if(indx<=21)
+  //            { var str1 = new String(element.h);
+  //             var index = str1.indexOf( "(Mandatory)" );
+  //             var slicedStr = str1.slice(0,index)
+  //             console.log("in",slicedStr)
+  //             console.log("indexindex",index)
+  //             if((element2.h.includes("(Mandatory)")||element2.h.includes("(Mandatory for student and Teacher)")))
+  //             {
+  //               workBook.Sheets[indx]= {"h": slicedStr,
+  //               "r": "<t>"+slicedStr+"</t>",
+  //               "t": slicedStr}
+  //             }}}
+  //           });
+            
+  //         }
+  //       });
+  //         })
+          
+  // });
+  //     });
+
+var arrsheet =[];
+var prexlsToJson3 = [];
+
+//// To Replace the Header of the XLSX File before pushing in to the JSON.//////
+  jsonData2 = workBook.SheetNames.reduce((initial, name) => {
+    if(name !== "States"){
+      var sht =workBook.Sheets[name]
+      const sheet = workBook.Sheets[name];
+     
+      var range = XLSX.utils.decode_range(sheet['!ref']);
+    var C, R = range.s.r; /* start in the first row */
+    /* walk every column in the range */
+    for(C = range.s.c; C <= range.e.c; ++C) {
+        var cell = sheet[XLSX.utils.encode_cell({c:C, r:R})] /* find the cell in the first row */
+
+        var hdr = "UNKNOWN " + C; // <-- replace with your desired default 
+        if(cell && cell.t) hdr = XLSX.utils.format_cell(cell);
+        var str1 = new String(hdr);
+          var index = str1.indexOf( "(" );
+          var slicedStr = str1.slice(0,index)
+          console.log("in",slicedStr)
+          console.log("indexindex",index)
+          var str2 = new String(hdr);
+          // var index2 = str2.split(" ").join('');
+          var slicedStr2 = str2.slice(0,index);
+          slicedStr2 = slicedStr2.split(" ").join('');
+          console.log("slicedStr2",slicedStr2);
+          if((hdr.includes("(Mandatory)")||hdr.includes("(Mandatory_for_student_and_Teacher)")))
+          {
+            sheet[XLSX.utils.encode_cell({c:C, r:R})]= {"h": slicedStr2,
+            "r": "<t>"+slicedStr2+"</t>",
+            "t": "s",
+            "v": slicedStr2,
+            "w": slicedStr2}
+          }
+          else{
+            sheet[XLSX.utils.encode_cell({c:C, r:R})]= {"h": slicedStr2,
+            "r": "<t>"+slicedStr2+"</t>",
+            "t": "s",
+            "v": slicedStr2,
+            "w": slicedStr2}
+          }
+         
+        // headers.push(hdr);
+    }
+     
+     }
+     return initial;
+     }, {});
+
+
+
+=======
+      this.xlsToJson =[];
+      workBook = XLSX.read(data, { type: 'binary' });
+>>>>>>> 102001482351c299b8c3a1445f0d9f0895565624
       jsonData = workBook.SheetNames.reduce((initial, name) => {
       if(name !== "States"){
         const sheet = workBook.Sheets[name];
@@ -1521,7 +1679,18 @@ else{
         SheetName = "Sheet"+(index+1);
         item.map((item2,index2)=>{
         if(index2 !== 0){
+<<<<<<< HEAD
+          var values = item2;
+          // var tempName = "email(Mandatory)"
+          // console.log("values",values.email_Mandatory)
+          // if(values.email(Mandatory))
+          // var val
+
          this.xlsToJson.push(item2)
+
+=======
+         this.xlsToJson.push(item2)
+>>>>>>> 102001482351c299b8c3a1445f0d9f0895565624
         }
         })
       })
@@ -1531,9 +1700,86 @@ else{
 
       // Replacing UserTypeId from String to Int
       this.xlsToJson.map((item2,index2)=>{
+<<<<<<< HEAD
+      
+        // replace Json Key Names
+          item2.email = item2.Email;
+          delete item2.Email;
+          item2.age = item2.Age;
+          delete item2.Age;
+          item2.ccUser = item2.CountryCode;
+          delete item2.CountryCode;
+          item2.gender = item2.Gender;
+          delete item2.Gender;
+          item2.grade = item2.Grade;
+          delete item2.Grade;
+          item2.name = item2.Name;
+          delete item2.Name;
+          item2.parentPhone1 = item2.ParentPhone1;
+          delete item2.ParentPhone1;
+          item2.password = item2.Password;
+          delete item2.Password;
+          item2.schoolId = item2.SchoolId;
+          delete item2.SchoolId;
+          item2.state = item2.State;
+          delete item2.State;
+          item2.userPhone = item2.UserPhone;
+          delete item2.UserPhone;
+          item2.userTypeId = item2.UserType;
+          delete item2.UserType;
+          if(item2.ParentPhone2)
+          {
+            item2.parentPhone2 = item2.ParentPhone2;
+            delete item2.ParentPhone2;
+          }
+          if(item2.DriverPhone){
+            item2.driverPhone = item2.DriverPhone;
+            delete item2.DriverPhone; 
+          }
+          if(item2.SchoolPhone){
+            item2.schoolPhone = item2.SchoolPhone;
+            delete item2.SchoolPhone;
+          }
+          if(item2.Address){
+            item2.address = item2.Address;
+            delete item2.Address;
+          }
+          if(item2.ZipCode){
+            item2.zipCode = item2.ZipCode;
+            delete item2.ZipCode;
+          }
+          if(item2.City){
+            item2.city = item2.City;
+            delete item2.City;
+          }
+          if(item2.BusRoute){
+            item2.busRoute = item2.BusRoute;
+            delete item2.BusRoute;
+          }
+          if(item2.ProfileImage){
+            item2.profileImage = item2.ProfileImage;
+            delete item2.ProfileImage;
+          }
+          if(item2.SocialUser){
+            item2.isSocialUser = item2.SocialUser;
+            delete item2.SocialUser;
+          }
+        // };
+
         if(item2.ccUser === 1){
           item2.ccUser = "+1"
         }
+        if(item2.isSocialUser === "Yes"){
+          item2.isSocialUser = 1;
+        }
+        else{
+          item2.isSocialUser = 0;
+        }
+=======
+        if(item2.ccUser === 1){
+          item2.ccUser = "+1"
+        }
+>>>>>>> 102001482351c299b8c3a1445f0d9f0895565624
         if(item2.ccUser === 91){
           item2.ccUser = "+91"
         }
@@ -1549,6 +1795,17 @@ else{
         else{
           item2.userTypeId = 5;
         }
+<<<<<<< HEAD
+
+      });
+      /// end here ///
+
+      console.log("xlsToJson",this.xlsToJson);
+      console.log("prexlsToJson",prexlsToJson);
+     
+      /// Validation of the Columns
+     
+=======
       });
       /// end here ///
 
@@ -1557,6 +1814,7 @@ else{
       // console.log("this.userInfo.schoolid",this.userInfo.schoolid)
       /// Validation of the Columns
       // console.log("prexlsToJson[0].length",prexlsToJson[0].length);
+>>>>>>> 102001482351c299b8c3a1445f0d9f0895565624
       if(prexlsToJson[0].length <= 1){
         this.excelValidationErrors.push("Sheet is Empty" );
       }
@@ -1638,10 +1896,16 @@ else{
           })
       })
       /// End ///
+<<<<<<< HEAD
+      
+      const dataString = JSON.stringify(jsonData);
+     
+=======
       // console.log("this.excelValidationErrors",this.excelValidationErrors);
       // console.log("xlsToJson",this.xlsToJson);
       const dataString = JSON.stringify(jsonData);
       // console.log("dataString",jsonData);
+>>>>>>> 102001482351c299b8c3a1445f0d9f0895565624
     }
     reader.readAsBinaryString(file);
     event.srcElement.value = null;
@@ -1776,6 +2040,8 @@ else{
             alert(res.message + " : " + res.result);
           }
           resolve();
+        },error => {
+          console.log('oops', error)
         });
     });
   }
@@ -1807,6 +2073,8 @@ else{
             alert(res.message + " : " + res.result);
           }
           resolve();
+        },error => {
+          console.log('oops', error)
         });
     });
   }
@@ -1866,6 +2134,8 @@ else{
               this.editDriverDummy = this.editDriverDummy.filter((value, index, self) => self.map(x => x.name).indexOf(value.name) == index)
             }
 
+<<<<<<< HEAD
+=======
           } else {
             alert(res.message + " : " + res.result);
           }
@@ -1899,10 +2169,48 @@ else{
               // this.totalRecords = res.result.length;
             }
             console.log("DATALIST", this.data);
+>>>>>>> 102001482351c299b8c3a1445f0d9f0895565624
           } else {
             alert(res.message + " : " + res.result);
           }
           resolve();
+        },error => {
+          console.log('oops', error)
+        });
+    });
+  }
+  }
+  getBusRouteById() {
+    let arrLen: any = [];
+    let formObj = {
+      id: this.schoolId,
+    };
+    return new Promise<void>((resolve, reject) => {
+      this.http
+        .post(this.url + "bully-buddy/busroute/get_busroute_by_id", formObj)
+        .subscribe((res: any) => {
+          if (res.status == "200") {
+            // this.dataList.push(res.result);
+            // this.dataList.push(this.dataList);
+            arrLen.push(res.result);
+            // console.log("RESsss", arrLen);
+            if (arrLen.length === 1) {
+              // this.dataList = [];
+              // this.dataList.push(res.result);
+              this.data = res.result;
+              // this.totalRecords = res.result.length;
+            } else {
+              // this.dataList = res.result;
+              this.data = res.result;
+              // this.totalRecords = res.result.length;
+            }
+            console.log("DATALIST", this.data);
+          } else {
+            alert(res.message + " : " + res.result);
+          }
+          resolve();
+        },error => {
+          console.log('oops', error)
         });
     });
   }
@@ -1958,6 +2266,8 @@ if(this.zipCodesrch===undefined||this.zipCodesrch===null||this.zipCodesrch==="")
             alert(res.message + " : " + res.result);
           }
           resolve();
+        },error => {
+          console.log('oops', error)
         });
     });
   }
@@ -1996,6 +2306,8 @@ if(this.zipCodesrch===undefined||this.zipCodesrch===null||this.zipCodesrch==="")
             alert(res.message + " : " + res.result);
           }
           resolve();
+        },error => {
+          console.log('oops', error)
         });
     });
   }

@@ -298,7 +298,11 @@
               <option [ngValue]="null" [disabled]="true" hidden>Select</option>
               <option *ngFor="let opt of userTypeList2" value={{opt.id}}>{{opt.type}}</option>
             </select>
+<<<<<<< HEAD
+            <label *ngIf="showFields" >UserName/Email</label>&nbsp;<span style="color: red;" *ngIf="showFields">*</span>
+=======
             <label *ngIf="showFields" >User Email</label>&nbsp;<span style="color: red;" *ngIf="showFields">*</span>
+>>>>>>> 102001482351c299b8c3a1445f0d9f0895565624
             <input *ngIf="showFields" [(ngModel)]="validEmail" type="email" class="form-control" formControlName="email"
              [ngStyle]="validEmail==''||validEmail==undefined?{'border-color':'#ef8575'}:{'border-color':''}"
               (ngModelChange)="userEmailChange($event)" required>
@@ -459,11 +463,11 @@
           <div class="form-group">
             <label>User Type</label>&nbsp;<span style="color: red;">*</span>
             <select class="form-control" (change)="userTypeDropDown($event.target.value)" [(ngModel)]="userTypeId"
-              [ngModelOptions]="{standalone: true}">
+              [ngModelOptions]="{standalone: true}" disabled>
               <option [ngValue]="null" [disabled]="true" hidden>Select</option>
               <option *ngFor="let opt of userTypeList" value={{opt.id}}>{{opt.type}}</option>
             </select>
-            <label>User Email</label>&nbsp;<span style="color: red;">*</span>
+            <label>UserName/Email</label>&nbsp;<span style="color: red;">*</span>
             <input type="text" [(ngModel)]="validEmail" [ngStyle]="validEmail==''||validEmail==undefined?{'border-color':'#ef8575'}:{'border-color':''}"
             class="form-control" formControlName="email" (ngModelChange)="userEmailChange($event)" required>
             <span *ngIf="validationEmail" class="help-block text-danger">Please Enter valid Email</span><br>
